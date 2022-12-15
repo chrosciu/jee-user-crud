@@ -12,6 +12,22 @@
     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
   </div>
 
+  <table class="table table-bordered">
+  <c:forEach items="${users}" var="user">
+    <tr>
+      <td>
+          ${user.id}
+      </td>
+      <td>
+          ${user.userName}
+      </td>
+      <td>
+          ${user.email}
+      </td>
+    </tr>
+  </c:forEach>
+  </table>
+
 </div>
 <!-- /.container-fluid -->
 

@@ -9,6 +9,8 @@ import org.mindrot.jbcrypt.BCrypt;
 import pl.coderslab.utils.DbUtil;
 
 public class UserDao {
+    private static final String SALT = BCrypt.gensalt();
+
     private static final String CREATE_USER_QUERY =
         "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
     private static final String READ_USER_QUERY =
@@ -99,7 +101,7 @@ public class UserDao {
     }
 
     private String hashPassword(String password) {
-        return BCrypt.hashpw(password, "baadf00d");
+        return BCrypt.hashpw(password, SALT);
     }
 
     private User[] addToArray(User user, User[] users) {
